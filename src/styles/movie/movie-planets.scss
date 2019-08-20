@@ -1,0 +1,28 @@
+.movie-planets {
+  display: none;
+  grid-template-columns: repeat(7, auto);
+  grid-template-rows: auto;
+  padding: 1rem;
+  background: transparent;
+  font-size: 0.75rem;
+
+  &--active {
+    display: grid;
+  }
+}
+
+.movie-planets__header {
+  display: contents;
+}
+
+@media screen and (max-width: 1000px) {
+  .movie-planets {
+    grid-template-columns: auto auto;
+    grid-template-rows: repeat(7, auto);
+    padding: 1rem 0;
+  }
+
+  .movie-planets__header {
+    display: none;
+  }
+}

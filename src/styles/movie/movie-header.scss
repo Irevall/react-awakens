@@ -1,0 +1,32 @@
+.movie-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  background: white;
+  box-shadow: 0 2px 1px rgba(196, 196, 196, 0.2);
+  border-radius: 4px;
+  font-weight: 600;
+  color: #00687F;
+
+  &--active {
+    box-shadow: 0 4px 12px rgba(224, 230, 238, 0.5);
+
+    .movie-header__arrow {
+      &--open {
+        display: none;
+      }
+
+      &--close {
+        display: block;
+      }
+    }
+  }
+}
+
+.movie-header__arrow {
+  height: 20px;
+
+  &--close {
+    display: none;
+  }
+}

@@ -22,18 +22,18 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(js|jsx)$/,
+        test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
         }
       },
       {
-        test: /.*\.(png|jp(e*)g|gif|svg)$/i,
+        test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         use: {
           loader: 'url-loader',
           options: {
-            limit: 8000,
+            limit: 8192,
             name: 'assets/[name].[ext]'
           }
         }
