@@ -1,9 +1,11 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import search from '@/assets/search.svg'
 import '@/styles/app/app-new-movie.scss'
 
 import MovieHeader from '@/components/movie/MovieHeader'
+import { getMovies } from '@/services/ApiService'
+
 
 function AppNewMovie () {
   const [active, setActive] = useState(false)
