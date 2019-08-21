@@ -61,4 +61,4 @@ function AppMovies () {
   )
 }
 
-export default AppMovies;
+export default AppMovies

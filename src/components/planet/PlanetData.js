@@ -2,8 +2,6 @@ import React from 'react'
 
 import '@/styles/planet/planet-data.scss'
 
-// TODO: This is quite hacky, should be improved
-
 function PlanetData (props) {
   return (
     <div className="planet-data">
