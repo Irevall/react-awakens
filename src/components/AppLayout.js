@@ -1,11 +1,11 @@
 import React from 'react'
 
-import '@/styles/app/app-layout.scss'
-
 import AppHeader from '@/components/AppHeader'
 import AppMovies from '@/components/AppMovies'
 import AppNewMovie from '@/components/AppNewMovie'
 import AppFooter from '@/components/AppFooter'
+
+import '@/styles/app/app-layout.scss'
 
 function AppLayout () {
   return (

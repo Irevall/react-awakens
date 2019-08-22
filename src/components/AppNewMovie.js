@@ -1,18 +1,20 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
+
+import MovieHeader from '@/components/movie/MovieHeader'
 
 import search from '@/assets/search.svg'
 import '@/styles/app/app-new-movie.scss'
 
-import MovieHeader from '@/components/movie/MovieHeader'
-import { getMovies } from '@/services/ApiService'
-
-
 function AppNewMovie () {
   const [active, setActive] = useState(false)
 
+  async function interceptToggle () {
+    setActive(!active)
+  }
+
   return (
     <div className={`app-new-movie${active ? ' app-new-movie--active' : ''}`}>
-      <MovieHeader title="Add movie" active={active} passActive={setActive}/>
+      <MovieHeader title="Add movie" active={active} toggle={interceptToggle}/>
       <div className="app-new-movie__creator">
         <div className="app-new-movie__input-wrapper">
           <label className="app-new-movie__label">Movie title</label>

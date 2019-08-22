@@ -1,25 +1,16 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext } from 'react'
+import { observer } from 'mobx-react'
 
-import '@/styles/movie/movie-planets.scss'
+import { PlanetstoreContext } from '@/stores/PlanetStore'
 
 import PlanetHeader from '@/components/planet/PlanetHeader'
 import PlanetData from '@/components/planet/PlanetData'
-import { observer } from 'mobx-react'
-import { PlanetstoreContext } from '@/stores/PlanetStore'
-import { MovieStoreContext } from '@/stores/MovieStore'
+import Loader from '@/components/misc/Loader'
 
+import '@/styles/movie/movie-planets.scss'
 
 const MoviePlanets = observer((props) => {
   const planetStore = useContext(PlanetstoreContext)
-  const movieStore = useContext(MovieStoreContext)
-
-  // useEffect(() => {
-  //   async function requestFetch () {
-  //     await planetStore.fetchData(props.planets)
-  //   }
-  //
-  //   requestFetch()
-  // })
 
   return (
     <div className={`movie-planets${props.active ? ' movie-planets--active' : ''}`}>
@@ -27,9 +18,13 @@ const MoviePlanets = observer((props) => {
         <PlanetHeader/>
       </div>
 
+      <div className={`movie-planets__loader${!props.movie.planetDataLoaded ? ' movie-planets__loader--loading' : ''}`}>
+        <Loader loading={!props.movie.planetDataLoaded} size="35px"/>
+      </div>
+
       {
         props.movie.planets.map(planetID => {
-          if (!movieStore.movies[0].planetDataLoaded) return
+          if (!props.movie.planetDataLoaded) return
 
           return (
             <PlanetData planet={planetStore.getPlanet(planetID)} key={`${props.movie.title}-${planetID}`}/>

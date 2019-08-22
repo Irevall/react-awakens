@@ -15,6 +15,18 @@
   display: contents;
 }
 
+.movie-planets__loader {
+  position: relative;
+  display: none;
+  margin-top: 1rem;
+  height: 40px;
+  grid-column: 1 / -1;
+
+  &--loading {
+    display: flex;
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .movie-planets {
     grid-template-columns: auto auto;

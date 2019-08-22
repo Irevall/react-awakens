@@ -1,26 +1,21 @@
 import { createContext } from 'react'
-import { observable, computed, action } from 'mobx'
-import { getMovies, getPlanet } from '@/services/ApiService'
+import { observable, action } from 'mobx'
+import { getPlanet } from '@/services/ApiService'
 
 class PlanetStore {
   @observable loading = false
   @observable planets = []
 
-  constructor () {
-  }
+  constructor () { }
 
   @action
   async fetchData (planetIDs) {
     for (const planetID of planetIDs) {
-      if (this.planets.find((planet) => planet.id === planetID)) {
-        console.log('lol this planet was found already')
-        continue
-      }
+      if (this.planets.find((planet) => planet.id === planetID)) continue
 
       try {
-        console.log('damn had to download')
-        const planet = await getPlanet(planetID)
-        this.planets.push(planet)
+        const rawPlanet = await getPlanet(planetID)
+        this.planets.push(new Planet(rawPlanet, planetID))
       } catch (err) {
         // TODO
       }
@@ -28,7 +23,20 @@ class PlanetStore {
   }
 
   getPlanet (planetID) {
-    this.planets.find((planet) => planet.id === planetID)
+    return this.planets.find((planet) => planet.id === planetID)
+  }
+}
+
+class Planet {
+  constructor (raw, id) {
+    this.id = id
+    this.name = raw.name
+    this.rotationPeriod = raw.rotation_period
+    this.orbitalPeriod = raw.orbital_period
+    this.diameter = raw.diameter
+    this.climate = raw.climate
+    this.surfaceWater = raw.surface_water
+    this.population = raw.population
   }
 }
 

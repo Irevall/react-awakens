@@ -1,22 +1,12 @@
-import React, { useContext } from 'react'
-
-import '@/styles/app/app-header.scss'
+import React from 'react'
+import { observer } from 'mobx-react'
 
 import logo from '@/assets/logo.svg'
-import { observer } from 'mobx-react'
-import { PlanetstoreContext } from '@/stores/PlanetStore'
-import { MovieStoreContext } from '@/stores/MovieStore'
+import '@/styles/app/app-header.scss'
 
 const AppHeader = observer(() => {
-  const planetStore = useContext(PlanetstoreContext)
-  const movieStore = useContext(MovieStoreContext)
-
-
   return (
-    <header className="app-header" onClick={() => {
-      console.log(planetStore)
-      console.log(movieStore)
-    }}>
+    <header className="app-header">
       <img src={logo} className="app-header__logo" alt="logo"/>
     </header>
   )

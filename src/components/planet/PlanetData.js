@@ -45,7 +45,7 @@ function PlanetData (props) {
         <span>Surface water</span>
       </div>
       <div className="planet-data__data">
-        <span>{props.planet.surface}</span>
+        <span>{props.planet.surfaceWater}</span>
       </div>
 
       <div className="planet-data__header">

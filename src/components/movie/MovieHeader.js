@@ -1,9 +1,9 @@
 import React from 'react'
 
-import '@/styles/movie/movie-header.scss'
-
 import arrowOpen from '@/assets/arrow_open.svg'
 import arrowClose from '@/assets/arrow_close.svg'
+
+import '@/styles/movie/movie-header.scss'
 
 function MovieHeader (props) {
   return (
