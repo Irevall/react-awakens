@@ -19,7 +19,7 @@ class MovieStore {
       const movies = await getMovies()
       this.movies = movies.map(rawMovie => new Movie(rawMovie))
     } catch (err) {
-      // TODO
+      // TODO test
     }
 
     this.loading = false

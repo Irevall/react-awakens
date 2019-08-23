@@ -1,11 +1,13 @@
-const TerserPlugin = require('terser-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin')
 
-const config = require('./webpack.config');
+const config = require('./webpack.config')
 
-delete config.devServer;
+delete config.devServer
 
-config.mode = 'production';
-config.devtool = 'source-map';
+config.mode = 'production'
+config.devtool = 'source-map'
+// this one is for gh-pages
+config.output.publicPath = '/frontend-recruitment-task-08.19-2/'
 
 config.optimization = {
   minimizer: [new TerserPlugin()],
@@ -19,7 +21,7 @@ config.optimization = {
         enforce: true,
       }
     }
-  }
-};
+  },
+}
 
-module.exports = config;
+module.exports = config

@@ -1,7 +1,6 @@
 {
   "name": "frontend-developer-test-react",
   "version": "1.0.0",
-  "homepage": "https://irevall.github.io/frontend-recruitment-task-08.19-2",
   "scripts": {
     "start": "webpack-dev-server --hot --open --env development",
     "build": "webpack --env production --config webpack.prod.config.js",
