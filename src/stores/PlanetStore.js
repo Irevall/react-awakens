@@ -10,6 +10,8 @@ class PlanetStore {
 
   @action
   async fetchData (planetIDs) {
+    // FIXME: this should be .map with Promise.all()
+
     for (const planetID of planetIDs) {
       if (this.planets.find((planet) => planet.id === planetID)) continue
 

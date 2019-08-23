@@ -11,18 +11,21 @@
   color: #474747;
 }
 
+.planet-data__data-wrapper {
+  display: contents;
+}
+
 .planet-data__data {
-  &:nth-of-type(2) {
+  padding-right: 0.5rem;
+
+
+  &:nth-of-type(1) {
     color: #00687F;
   }
 
-  &:not(:nth-of-type(2)) {
+  &:not(:nth-of-type(1)) {
     text-align: right;
     padding-left: 0.5rem;
-  }
-
-  &:not(:last-of-type) {
-    padding-right: 0.5rem;
   }
 }
 
@@ -31,7 +34,7 @@
     display: flex;
   }
 
-  .planet-data:nth-child(odd) * {
+  .planet-data:nth-child(even) > * {
     background: rgba(229, 229, 229, 0.5);
   }
 
@@ -40,5 +43,11 @@
       text-align: left;
       padding: 1rem;
     }
+  }
+
+  .planet-data__data-wrapper {
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: repeat(7, auto);
   }
 }

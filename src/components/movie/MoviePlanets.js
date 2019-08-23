@@ -3,11 +3,11 @@ import { observer } from 'mobx-react'
 
 import { PlanetstoreContext } from '@/stores/PlanetStore'
 
-import PlanetHeader from '@/components/planet/PlanetHeader'
 import PlanetData from '@/components/planet/PlanetData'
 import Loader from '@/components/misc/Loader'
 
 import '@/styles/movie/movie-planets.scss'
+import PlanetColumnNames from '@/components/planet/PlanetColumnNames'
 
 const MoviePlanets = observer((props) => {
   const planetStore = useContext(PlanetstoreContext)
@@ -15,7 +15,7 @@ const MoviePlanets = observer((props) => {
   return (
     <div className={`movie-planets${props.active ? ' movie-planets--active' : ''}`}>
       <div className="movie-planets__header">
-        <PlanetHeader/>
+        <PlanetColumnNames type="horizontal"/>
       </div>
 
       <div className={`movie-planets__loader${!props.movie.planetDataLoaded ? ' movie-planets__loader--loading' : ''}`}>

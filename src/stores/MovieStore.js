@@ -1,6 +1,7 @@
 import { createContext } from 'react'
 import { observable, action } from 'mobx'
 import { getMovies } from '@/services/ApiService'
+import { urlToId } from '@/helpers/planetUrlToPlanetId'
 
 class MovieStore {
   @observable loading = false
@@ -31,10 +32,7 @@ class Movie {
   constructor (raw) {
     this.id = raw.episode_id
     this.title = raw.title
-    this.planets = raw.planets.map(planetAPI => {
-      const match = planetAPI.match(/planets\/(?<id>[0-9]+)/)
-      return match.groups.id
-    })
+    this.planets = raw.planets.map(planetAPI => urlToId(planetAPI))
   }
 }
 

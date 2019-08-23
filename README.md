@@ -5,7 +5,6 @@
 - add sorting to movie data
 - finish movie creator (with localStorage!)
 - improve styling and responsiveness
-- work on data grid (grid-auto-flow maybe?)
 
 ##### Optional:
 - GraphQL
