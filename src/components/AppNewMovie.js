@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react'
 
+import { searchPlanets } from '@/services/ApiService'
+import { urlToId } from '@/helpers/planetUrlToPlanetId'
 import MovieHeader from '@/components/movie/MovieHeader'
 
 import deleteIcon from '@/assets/delete.svg'
 import search from '@/assets/search.svg'
 import '@/styles/app/app-new-movie.scss'
-import { searchPlanets } from '@/services/ApiService'
-import { urlToId } from '@/helpers/planetUrlToPlanetId'
-import Loader from '@/components/misc/Loader'
 
 function AppNewMovie () {
   // FIXME: This got really messy really quickly

@@ -2,7 +2,8 @@
   "name": "frontend-developer-test-react",
   "version": "1.0.0",
   "scripts": {
-    "start": "webpack-dev-server --hot --open -env development"
+    "start": "webpack-dev-server --hot --open --env development",
+    "build": "webpack --env production --config webpack.prod.config.js"
   },
   "dependencies": {
     "axios": "^0.19.0",
