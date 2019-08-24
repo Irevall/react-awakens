@@ -25,7 +25,7 @@ const MovieExisting = observer((props) => {
   return (
     <div className={`movie-existing${active ? ' movie-existing--active' : ''}`}>
       <MovieHeader title={props.movie.title} active={active} toggle={interceptToggle}/>
-      <MoviePlanets active={active} loading={props.movie.planetDataLoaded} movie={props.movie}/>
+      <MoviePlanets active={active} movie={props.movie}/>
     </div>
   )
 })

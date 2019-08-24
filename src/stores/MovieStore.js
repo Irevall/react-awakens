@@ -1,6 +1,7 @@
 import { createContext } from 'react'
 import { observable, action } from 'mobx'
 import { getMovies } from '@/services/ApiService'
+import { setItem, getItem } from '@/services/StorageService'
 import { urlToId } from '@/helpers/planetUrlToPlanetId'
 
 class MovieStore {
@@ -17,22 +18,44 @@ class MovieStore {
 
     try {
       const movies = await getMovies()
-      this.movies = movies.map(rawMovie => new Movie(rawMovie))
+      this.movies = movies.map(rawMovie => new Movie(rawMovie, true))
     } catch (err) {
       // TODO test
     }
 
     this.loading = false
+
+    const storedMovies = getItem('movies')
+    if (!storedMovies) return
+
+    storedMovies.map(movie => {
+      this.addUserMovie(movie.title, movie.planets)
+    })
+  }
+
+  @action
+  addUserMovie (title, planets) {
+    const newPlanet = new Movie({
+      id: this.movies.length + 1,
+      title,
+      planets,
+    }, false)
+
+    this.movies = [...this.movies, newPlanet ]
+
+    setItem('movies', this.movies.filter(movie => !movie.genuine))
   }
 }
 
 class Movie {
   @observable planetDataLoaded = false
+  @observable planetPropertySort = { property: 'name', order: 'desc' }
 
-  constructor (raw) {
-    this.id = raw.episode_id
+  constructor (raw, genuine) {
+    this.id = genuine ? raw.episode_id : raw.id
+    this.genuine = genuine
     this.title = raw.title
-    this.planets = raw.planets.map(planetAPI => urlToId(planetAPI))
+    this.planets = genuine ? raw.planets.map(planetAPI => urlToId(planetAPI)) : raw.planets
   }
 }
 

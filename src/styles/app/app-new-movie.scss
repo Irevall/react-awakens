@@ -42,6 +42,21 @@
   }
 }
 
+.app-new-movie__title-error {
+  display: none;
+  padding: 0.5rem;
+  margin-top: 2px;
+  border: 1px solid #FF1616;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(196, 196, 196, 0.5);
+  font-size: 0.75rem;
+  color: #FF1616;
+
+  &--visible {
+    display: flex;
+  }
+}
+
 .app-new-movie__planets {
   display: flex;
   flex-wrap: wrap;
@@ -150,4 +165,10 @@
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
+  cursor: pointer;
+
+  &--inactive {
+    background: #E0E6EE;
+    cursor: not-allowed;
+  }
 }

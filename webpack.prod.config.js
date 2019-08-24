@@ -7,7 +7,7 @@ delete config.devServer
 config.mode = 'production'
 config.devtool = 'source-map'
 // this one is for gh-pages
-config.output.publicPath = '/frontend-recruitment-task-08.19-2/'
+config.output.publicPath = '/react-awakens/'
 
 config.optimization = {
   minimizer: [new TerserPlugin()],

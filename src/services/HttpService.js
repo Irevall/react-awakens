@@ -46,6 +46,7 @@ async function interceptResponse (response) {
 }
 
 async function interceptError (err) {
+  console.log(err)
   return err
 }
 

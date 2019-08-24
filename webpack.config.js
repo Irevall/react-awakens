@@ -14,7 +14,6 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    contentBase: './src/static',
     historyApiFallback: true,
     overlay: true,
     open: true,
@@ -65,7 +64,7 @@ module.exports = {
     }),
   ],
   resolve: {
-    extensions: ['.js', '.jsx'],
+    extensions: ['*', '.js'],
     alias: {
       '@': path.resolve(__dirname, 'src')
     }

@@ -3,6 +3,8 @@
 
   &--horizontal {
     .planet-column-names__title {
+      display: flex;
+      align-items: center;
       padding: 0.5rem 0 1rem;
       border-bottom: 1px solid #C4C4C4;
       color: #474747;
@@ -13,7 +15,7 @@
       }
 
       &:not(:first-of-type) {
-        text-align: right;
+        justify-content: flex-end;
         padding-left: 0.5rem;
       }
     }

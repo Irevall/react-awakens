@@ -1,5 +1,5 @@
 function createKey (name) {
-  return `mirumee:${name}`
+  return `mirumee-task:${name}`
 }
 
 function getStorage () {

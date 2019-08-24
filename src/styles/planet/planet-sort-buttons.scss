@@ -1,0 +1,25 @@
+.planet-sort-buttons {
+  display: flex;
+  flex-direction: column;
+  margin-left: 0.5rem;
+}
+
+.planet-sort-buttons__button {
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  border-bottom: 5px solid #474747;
+  cursor: pointer;
+
+  &--up {
+    //border-bottom: 5px solid #474747;
+    margin-bottom: 2px;
+  }
+
+  &--down {
+    transform: rotate(180deg);
+  }
+}
+
+.planet-sort-buttons--active > .planet-sort-buttons__button--active {
+  border-bottom-color: #00687F;
+}
