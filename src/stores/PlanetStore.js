@@ -12,13 +12,13 @@ class PlanetStore {
   async fetchData (planetIDs) {
     const rawPlanets = await Promise.all(
       planetIDs.map((planetID) => {
-        if (this.planets.find( (planet) => planet.id === planetID)) return
+        if (this.planets.find((planet) => planet.id === planetID)) return
 
         return getPlanet(planetID)
       })
     )
 
-    rawPlanets.map(rawPlanet => this.planets.push(new Planet(rawPlanet)))
+    rawPlanets.filter(rawPlanet => rawPlanet).map(rawPlanet => this.planets.push(new Planet(rawPlanet)))
   }
 
   getPlanet (planetID) {

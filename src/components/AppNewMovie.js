@@ -15,8 +15,8 @@ const AppNewMovie = observer(() => {
 
   // FIXME: This got really messy really quickly
   const [active, setActive] = useState(false)
-  const [title, setTitle] = useState(null)
-  const [isTitleValid, setIsTitleValid] = useState(true)
+  const [title, setTitle] = useState('')
+  const [ifTitleIsValid, setIfTitleIsValid] = useState(true)
   const [planets, setPlanets] = useState([])
   const [searchQuery, setSearchQuery] = useState('')
   const [searchResults, setSearchResults] = useState(null)
@@ -66,17 +66,18 @@ const AppNewMovie = observer(() => {
   }, [planets, searchResults])
 
   const isValidMovie = useMemo(() => {
-    return planets.length > 0 && isTitleValid
-  }, [planets, isTitleValid])
+    return planets.length > 0 && title && ifTitleIsValid
+  }, [planets, ifTitleIsValid])
 
   useEffect(() => {
-    if (title === null) return
+    if (!title) return setIfTitleIsValid(true)
 
-    if (title && title[0] === title[0].toUpperCase() && title.length >= 3) return setIsTitleValid(true)
+    if (title[0] !== title[0].toUpperCase()) return setIfTitleIsValid(false)
+    if (title.length >= 3) return setIfTitleIsValid(true)
 
     const timeout = setTimeout(async () => {
-      setIsTitleValid(false)
-    }, 750)
+      setIfTitleIsValid(false)
+    }, 500)
 
     return () => clearTimeout(timeout)
   }, [title])
@@ -105,7 +106,7 @@ const AppNewMovie = observer(() => {
           <input type="text" className="app-new-movie__input app-new-movie__input--title"
                  placeholder="Please enter the title of the movie"
                  onChange={(event) => { setTitle(event.target.value) }}/>
-          <div className={`app-new-movie__title-error${!isTitleValid ? ' app-new-movie__title-error--visible' : ''}`}>
+          <div className={`app-new-movie__title-error${!ifTitleIsValid ? ' app-new-movie__title-error--visible' : ''}`}>
             <span>Movie title must start with a capital letter and have at least 3 letters</span>
           </div>
         </div>
