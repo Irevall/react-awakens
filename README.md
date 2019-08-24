@@ -1,5 +1,6 @@
-Recruitment task for Frontend Developer with React
-----
+### Recruitment task for Frontend Developer with React
+##### Deployed with [GitHub Pages](https://irevall.github.io/react-awakens/)
+
 ##### Some afterthought
 I'll be honest and admit that I didn't have a lot of prior experience with React.
 I've spent first two days mainly learning about React and Hooks and honestly
