@@ -11,6 +11,10 @@
   grid-template-columns: auto;
   padding: 2rem 5rem;
   background: transparent;
+
+  @include mobile {
+    padding: 1rem;
+  }
 }
 
 .app-new-movie__label {

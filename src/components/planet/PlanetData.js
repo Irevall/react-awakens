@@ -1,7 +1,9 @@
 import React from 'react'
 
-import '@/styles/planet/planet-data.scss'
+import { planetProperties } from '@/resources/planet'
 import PlanetColumnNames from '@/components/planet/PlanetColumnNames'
+
+import '@/styles/planet/planet-data.scss'
 
 function PlanetData ({ planet }) {
   return (
@@ -9,33 +11,15 @@ function PlanetData ({ planet }) {
       <PlanetColumnNames type="vertical"/>
 
       <div className="planet-data__data-wrapper">
-        <div className="planet-data__data">
-          <span>{planet.name}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.rotationPeriod}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.orbitalPeriod}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.diameter}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.climate}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.surfaceWater}</span>
-        </div>
-
-        <div className="planet-data__data">
-          <span>{planet.population}</span>
-        </div>
+        {
+          planetProperties.map(planetProperty => {
+            return (
+              <div className="planet-data__data" key={planetProperty.property}>
+                <span>{planet[planetProperty.property]}</span>
+              </div>
+            )
+          })
+        }
       </div>
     </div>
   )

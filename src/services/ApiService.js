@@ -6,7 +6,8 @@ export async function getMovies () {
 }
 
 export async function getPlanet (id) {
-  return get(`/planets/${id}`)
+  const rawPlanet = await get(`/planets/${id}`)
+  return { id, ...rawPlanet }
 }
 
 export async function searchPlanets (name) {

@@ -1,6 +1,10 @@
 html {
   font-family: 'Barlow', sans-serif;
   font-size: 16px;
+
+  @include mobile-big {
+    font-size: 12px;
+  }
 }
 
 body {

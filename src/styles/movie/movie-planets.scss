@@ -27,7 +27,7 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@include mobile-big {
   .movie-planets {
     grid-template-columns: auto auto;
     padding: 1rem 0;

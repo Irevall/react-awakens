@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 
 import { MovieStoreContext } from '@/stores/MovieStore'
 import { searchPlanets } from '@/services/ApiService'
-import { urlToId } from '@/helpers/planetUrlToPlanetId'
+import { planetUrlToId } from '@/helpers/planet'
 import MovieHeader from '@/components/movie/MovieHeader'
 
 import deleteIcon from '@/assets/delete.svg'
@@ -43,7 +43,7 @@ const AppNewMovie = observer(() => {
       const results = (await searchPlanets(searchQuery))
         .map(planet => {
           return {
-            id: urlToId(planet.url),
+            id: planetUrlToId (planet.url),
             name: planet.name,
           }
         })
@@ -57,12 +57,13 @@ const AppNewMovie = observer(() => {
     if (!searchResults) return []
 
     return searchResults.filter(result => {
+      // this line limits search to only planets that start with the query, not sure if it's desired
       if (!result.name.toLowerCase().startsWith(searchQuery.toLowerCase())) return
       if (planets.find(planet => planet.name === result.name)) return
 
       return result
     })
-  }, [searchResults])
+  }, [planets, searchResults])
 
   const isValidMovie = useMemo(() => {
     return planets.length > 0 && isTitleValid

@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import { observable, action } from 'mobx'
 import { getMovies } from '@/services/ApiService'
 import { setItem, getItem } from '@/services/StorageService'
-import { urlToId } from '@/helpers/planetUrlToPlanetId'
+import { planetUrlToId } from '@/helpers/planet'
 
 class MovieStore {
   @observable loading = false
@@ -20,7 +20,7 @@ class MovieStore {
       const movies = await getMovies()
       this.movies = movies.map(rawMovie => new Movie(rawMovie, true))
     } catch (err) {
-      // TODO test
+      // TODO ?
     }
 
     this.loading = false
@@ -49,13 +49,13 @@ class MovieStore {
 
 class Movie {
   @observable planetDataLoaded = false
-  @observable planetPropertySort = { property: 'name', order: 'desc' }
+  @observable planetPropertySort = { property: 'name', order: 'asc' }
 
   constructor (raw, genuine) {
     this.id = genuine ? raw.episode_id : raw.id
     this.genuine = genuine
     this.title = raw.title
-    this.planets = genuine ? raw.planets.map(planetAPI => urlToId(planetAPI)) : raw.planets
+    this.planets = genuine ? raw.planets.map(planetAPI => planetUrlToId(planetAPI)) : raw.planets
   }
 }
 

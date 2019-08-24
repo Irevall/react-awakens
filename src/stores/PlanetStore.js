@@ -10,18 +10,15 @@ class PlanetStore {
 
   @action
   async fetchData (planetIDs) {
-    // FIXME: this should be .map with Promise.all()
+    const rawPlanets = await Promise.all(
+      planetIDs.map((planetID) => {
+        if (this.planets.find( (planet) => planet.id === planetID)) return
 
-    for (const planetID of planetIDs) {
-      if (this.planets.find((planet) => planet.id === planetID)) continue
+        return getPlanet(planetID)
+      })
+    )
 
-      try {
-        const rawPlanet = await getPlanet(planetID)
-        this.planets.push(new Planet(rawPlanet, planetID))
-      } catch (err) {
-        // TODO
-      }
-    }
+    rawPlanets.map(rawPlanet => this.planets.push(new Planet(rawPlanet)))
   }
 
   getPlanet (planetID) {
@@ -30,8 +27,8 @@ class PlanetStore {
 }
 
 class Planet {
-  constructor (raw, id) {
-    this.id = id
+  constructor (raw) {
+    this.id = raw.id
     this.name = raw.name
     this.rotationPeriod = raw.rotation_period
     this.orbitalPeriod = raw.orbital_period

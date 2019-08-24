@@ -27,26 +27,15 @@ async function interceptResponse (response) {
     newRequest.url = nextCall
     const { data } = await axios.request(newRequest);
     nextCall = data.next
-    console.log(data)
     combinedResult.push(...data.results)
   }
-  // if (response.data.next) {
-  //   console.log('there is next')
-  //   console.log(response.config)
-  //   const newRequest = response.config;
-  //   newRequest.url = response.data.next
-  //   const requestResponse = await axios.request(newRequest);
-  //   console.log(requestResponse)
-    // await new Promise(resolve => setTimeout(resolve, Math.floor(response.data.timeout * 1000)));
-    // const newRequest = await axios.request(response.config);
-    // return newRequest.data;
-  // }
 
   return combinedResult
 }
 
 async function interceptError (err) {
   console.log(err)
+  console.log(Object.entries(err))
   return err
 }
 

@@ -29,7 +29,7 @@
   }
 }
 
-@media screen and (max-width: 1000px) {
+@include mobile-big {
   .planet-data__header {
     display: flex;
   }

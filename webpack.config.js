@@ -46,6 +46,12 @@ module.exports = {
             loader: 'sass-loader',
             options: { implementation: require('sass') }
           },
+          {
+            loader: 'sass-resources-loader',
+            options: {
+              resources: [path.resolve(__dirname, './src/styles/resources/*.scss')]
+            }
+          }
         ]
       },
       {
@@ -61,6 +67,7 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebPackPlugin({
       template: path.resolve(__dirname, './src', 'index.html'),
+      favicon: path.resolve(__dirname, './src/static', 'favicon.png')
     }),
   ],
   resolve: {
