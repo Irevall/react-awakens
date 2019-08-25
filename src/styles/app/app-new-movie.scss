@@ -20,6 +20,10 @@
 .app-new-movie__label {
   font-size: 0.75rem;
   color: #555555;
+
+  &--error {
+    color: #FF1616;
+  }
 }
 
 .app-new-movie__input-wrapper {

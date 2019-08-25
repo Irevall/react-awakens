@@ -10,12 +10,11 @@
   border-bottom: 5px solid #474747;
   cursor: pointer;
 
-  &--up {
-    //border-bottom: 5px solid #474747;
+  &:first-of-type {
     margin-bottom: 2px;
   }
 
-  &--down {
+  &:last-of-type {
     transform: rotate(180deg);
   }
 }

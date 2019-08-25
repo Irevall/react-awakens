@@ -3,7 +3,7 @@ import { observer } from 'mobx-react'
 
 import { MovieStoreContext } from '@/stores/MovieStore'
 import { searchPlanets } from '@/services/ApiService'
-import { planetUrlToId } from '@/helpers/planet'
+import { planetUrlToId, toggleClassName } from '@/helpers'
 import MovieHeader from '@/components/movie/MovieHeader'
 
 import deleteIcon from '@/assets/delete.svg'
@@ -98,15 +98,17 @@ const AppNewMovie = observer(() => {
   }
 
   return (
-    <div className={`app-new-movie${active ? ' app-new-movie--active' : ''}`}>
+    <div className={toggleClassName('app-new-movie', 'active', active)}>
       <MovieHeader title="Add movie" active={active} toggle={interceptToggle}/>
       <div className="app-new-movie__creator">
         <div className="app-new-movie__input-wrapper">
-          <label className="app-new-movie__label">Movie title</label>
+          <label className={toggleClassName('app-new-movie__label', 'error', !ifTitleIsValid)}>
+            Movie title
+          </label>
           <input type="text" className="app-new-movie__input app-new-movie__input--title"
                  placeholder="Please enter the title of the movie"
                  onChange={(event) => { setTitle(event.target.value) }}/>
-          <div className={`app-new-movie__title-error${!ifTitleIsValid ? ' app-new-movie__title-error--visible' : ''}`}>
+          <div className={toggleClassName('app-new-movie__title-error', 'visible', !ifTitleIsValid)}>
             <span>Movie title must start with a capital letter and have at least 3 letters</span>
           </div>
         </div>
@@ -139,7 +141,7 @@ const AppNewMovie = observer(() => {
             </div>
           </div>
           <div
-            className={`app-new-movie__search-results${loading || searchResults ? ' app-new-movie__search-results--visible' : ''}`}>
+            className={toggleClassName('app-new-movie__search-results', 'visible', loading || searchResults)}>
             <div className="app-new-movie__close-search" onClick={() => { setSearchQuery('') }}>
               <img src={deleteIcon} alt="remove"/>
             </div>
@@ -159,7 +161,7 @@ const AppNewMovie = observer(() => {
         </div>
 
         <div className="app-new-movie__button-wrapper">
-          <div className={`app-new-movie__button${!isValidMovie ?  ' app-new-movie__button--inactive' : ''}`} onClick={() => { addMovie() }}>
+          <div className={toggleClassName('app-new-movie__button', 'inactive', !isValidMovie)} onClick={() => { addMovie() }}>
             <span>Add movie</span>
           </div>
         </div>

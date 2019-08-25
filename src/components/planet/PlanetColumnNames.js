@@ -4,6 +4,7 @@ import { planetProperties } from '@/resources/planet'
 import PlanetSortButtons from '@/components/planet/PlanetSortButtons'
 
 import '@/styles/planet/planet-column-names.scss'
+import { toggleClassName } from '@/helpers'
 
 function PlanetColumnNames ({ movie, type }) {
   function renderSortButtons (property) {
@@ -15,7 +16,7 @@ function PlanetColumnNames ({ movie, type }) {
   }
 
   return (
-    <div className={`planet-column-names${type ? ` planet-column-names--${type}` : ''}`}>
+    <div className={toggleClassName('planet-column-names', type, type)}>
       {
         planetProperties.map(planetProperty => {
           return (

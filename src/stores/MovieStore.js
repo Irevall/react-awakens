@@ -2,7 +2,7 @@ import { createContext } from 'react'
 import { observable, action } from 'mobx'
 import { getMovies } from '@/services/ApiService'
 import { setItem, getItem } from '@/services/StorageService'
-import { planetUrlToId } from '@/helpers/planet'
+import { planetUrlToId } from '@/helpers'
 
 class MovieStore {
   @observable loading = false

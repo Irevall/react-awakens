@@ -8,6 +8,7 @@ import Loader from '@/components/misc/Loader'
 
 import '@/styles/movie/movie-planets.scss'
 import PlanetColumnNames from '@/components/planet/PlanetColumnNames'
+import { toggleClassName } from '@/helpers'
 
 const MoviePlanets = observer(({ active, movie }) => {
   const planetStore = useContext(PlanetstoreContext)
@@ -30,12 +31,12 @@ const MoviePlanets = observer(({ active, movie }) => {
   }, [planetData, movie.planetPropertySort])
 
   return (
-    <div className={`movie-planets${active ? ' movie-planets--active' : ''}`}>
+    <div className={toggleClassName('movie-planets', 'active', active)}>
       <div className="movie-planets__header">
         <PlanetColumnNames movie={movie} type="horizontal"/>
       </div>
 
-      <div className={`movie-planets__loader${!movie.planetDataLoaded ? ' movie-planets__loader--loading' : ''}`}>
+      <div className={toggleClassName('movie-planets__loader', 'loading', !movie.planetDataLoaded)}>
         <Loader loading={!movie.planetDataLoaded} size="35px"/>
       </div>
 
