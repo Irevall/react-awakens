@@ -3,8 +3,8 @@ import { observer } from 'mobx-react'
 
 import searchIcon from '@/assets/search.svg'
 
-import { newMovieStoreContext } from '@/stores/NewMovieStore'
-import { fakeRejectedPromise, toggleClassName } from '@/helpers'
+import { NewMoviePlanet, newMovieStoreContext } from '@/stores/NewMovieStore'
+import { fakeRejectedPromise, toggleClassName, planetUrlToId } from '@/helpers'
 import deleteIcon from '@/assets/delete.svg'
 import { searchPlanets } from '@/services/ApiService'
 
@@ -44,7 +44,7 @@ const NewMovieAddPlanet = observer(() => {
 
         setLoading(false)
         setSearchResults(results)
-      } catch {
+      } catch (err) {
         setApiError(true)
         setLoading(false)
         setSearchResults([])
