@@ -1,0 +1,26 @@
+.new-movie-planets {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.new-movie-planets__planet {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.5rem;
+  margin-right: 1rem;
+  border: 1px solid #999999;
+  border-radius: 1rem;
+  box-sizing: border-box;
+}
+
+.new-movie-planets__planet-remove {
+  height: 0.75rem;
+  margin-left: 0.5rem;
+  cursor: pointer;
+
+  > img {
+    display: block;
+    height: 100%;
+  }
+}

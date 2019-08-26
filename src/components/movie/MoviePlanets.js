@@ -1,7 +1,7 @@
 import React, { useContext, useMemo } from 'react'
 import { observer } from 'mobx-react'
 
-import { PlanetstoreContext } from '@/stores/PlanetStore'
+import { planetStoreContext } from '@/stores/PlanetStore'
 
 import PlanetData from '@/components/planet/PlanetData'
 import Loader from '@/components/misc/Loader'
@@ -11,7 +11,7 @@ import PlanetColumnNames from '@/components/planet/PlanetColumnNames'
 import { toggleClassName } from '@/helpers'
 
 const MoviePlanets = observer(({ active, movie }) => {
-  const planetStore = useContext(PlanetstoreContext)
+  const planetStore = useContext(planetStoreContext)
 
   const planetData = useMemo(() => {
     return movie.planets.map((planetID) => {

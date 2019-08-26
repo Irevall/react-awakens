@@ -1,0 +1,64 @@
+.new-movie-add-planet__search {
+  position: relative;
+  padding-right: 1.5rem;
+  border-bottom: 1px solid #999999;
+
+  .new-movie-add-planet__input {
+    border: none;
+  }
+}
+
+.new-movie-add-planet__search-icon {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  padding-right: 0.5rem;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.new-movie-add-planet__search-results {
+  position: absolute;
+  top: 100%;
+  width: 100%;
+  max-height: 7rem;
+  overflow-y: auto;
+  display: none;
+  flex-direction: column;
+  background: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  box-sizing: border-box;
+  box-shadow: 0 4px 4px rgba(196, 196, 196, 0.5);
+
+  &--visible {
+    display: flex;
+  }
+}
+
+.new-movie-add-planet__search-result {
+  padding: 0.5rem;
+  color: #555555;
+  cursor: pointer;
+
+  &:hover {
+    background: rgba(#1BA1BE, 0.2);
+  }
+
+  &--empty, &--loading {
+    color: rgb(196, 196, 196);
+    cursor: default;
+
+    &:hover {
+      background: none;
+    }
+  }
+}
+
+.new-movie-add-planet__close-search {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0.5rem;
+  cursor: pointer;
+  z-index: 2;
+}

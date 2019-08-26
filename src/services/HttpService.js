@@ -34,6 +34,8 @@ async function interceptResponse (response) {
 }
 
 async function interceptError (err) {
+  // TODO: API error handling?
+  console.log('unfortunately didn\'t have a good idea how to show error to user')
   console.log(err)
   console.log(Object.entries(err))
   return err

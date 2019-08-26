@@ -59,4 +59,5 @@ class Movie {
   }
 }
 
-export const MovieStoreContext = createContext(new MovieStore())
+export const movieStore = new MovieStore()
+export const movieStoreContext = createContext(movieStore)

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { observer } from 'mobx-react'
 
-import { MovieStoreContext } from '@/stores/MovieStore'
+import { movieStoreContext } from '@/stores/MovieStore'
 
 import MovieExisting from '@/components/movie/MovieExisting'
 import Loader from '@/components/misc/Loader'
@@ -9,7 +9,7 @@ import Loader from '@/components/misc/Loader'
 import '@/styles/app/app-movies.scss'
 
 const AppMovies = observer(() => {
-  const movieStore = useContext(MovieStoreContext);
+  const movieStore = useContext(movieStoreContext);
 
   return (
     <div className="app-movies">

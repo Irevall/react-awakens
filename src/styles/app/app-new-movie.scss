@@ -17,15 +17,6 @@
   }
 }
 
-.app-new-movie__label {
-  font-size: 0.75rem;
-  color: #555555;
-
-  &--error {
-    color: #FF1616;
-  }
-}
-
 .app-new-movie__input-wrapper {
   position: relative;
   display: flex;
@@ -34,6 +25,11 @@
   &:not(:last-of-type) {
     margin-bottom: 1rem;
   }
+}
+
+.app-new-movie__label {
+  font-size: 0.75rem;
+  color: #555555;
 }
 
 .app-new-movie__input {
@@ -49,114 +45,6 @@
     color: #C4C4C4;
   }
 }
-
-.app-new-movie__title-error {
-  display: none;
-  padding: 0.5rem;
-  margin-top: 2px;
-  border: 1px solid #FF1616;
-  box-sizing: border-box;
-  box-shadow: 0 4px 4px rgba(196, 196, 196, 0.5);
-  font-size: 0.75rem;
-  color: #FF1616;
-
-  &--visible {
-    display: flex;
-  }
-}
-
-.app-new-movie__planets {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.app-new-movie__planet {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 0.75rem;
-  margin-bottom: 0.5rem;
-  margin-right: 1rem;
-  border: 1px solid #999999;
-  border-radius: 1rem;
-  box-sizing: border-box;
-}
-
-.app-new-movie__planet-remove {
-  height: 0.75rem;
-  margin-left: 0.5rem;
-  cursor: pointer;
-
-  > img {
-    display: block;
-    height: 100%;
-  }
-}
-
-.app-new-movie__search {
-  position: relative;
-  padding-right: 1.5rem;
-  border-bottom: 1px solid #999999;
-
-  .app-new-movie__input {
-    border: none;
-  }
-}
-
-.app-new-movie__search-icon {
-  position: absolute;
-  right: 0;
-  top: 50%;
-  padding-right: 0.5rem;
-  transform: translateY(-50%);
-  cursor: pointer;
-}
-
-.app-new-movie__search-results {
-  position: absolute;
-  top: 100%;
-  width: 100%;
-  max-height: 7rem;
-  overflow-y: auto;
-  display: none;
-  flex-direction: column;
-  background: #FFFFFF;
-  border: 1px solid #E5E5E5;
-  box-sizing: border-box;
-  box-shadow: 0 4px 4px rgba(196, 196, 196, 0.5);
-
-  &--visible {
-    display: flex;
-  }
-}
-
-.app-new-movie__search-result {
-  padding: 0.5rem;
-  color: #555555;
-  cursor: pointer;
-
-  &:hover {
-    background: rgba(#1BA1BE, 0.2);
-  }
-
-  &--empty, &--loading {
-    color: rgb(196, 196, 196);
-    cursor: default;
-
-    &:hover {
-      background: none;
-    }
-  }
-}
-
-.app-new-movie__close-search {
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 0.5rem;
-  cursor: pointer;
-  z-index: 2;
-}
-
 .app-new-movie__button-wrapper {
   display: flex;
   justify-content: flex-end;

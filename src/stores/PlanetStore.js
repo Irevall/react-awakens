@@ -39,4 +39,5 @@ class Planet {
   }
 }
 
-export const PlanetstoreContext = createContext(new PlanetStore())
+export const planetStore = new PlanetStore()
+export const planetStoreContext = createContext(planetStore)

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { observer } from 'mobx-react'
 
-import { PlanetstoreContext } from '@/stores/PlanetStore'
+import { planetStoreContext } from '@/stores/PlanetStore'
 
 import MovieHeader from '@/components/movie/MovieHeader'
 import MoviePlanets from '@/components/movie/MoviePlanets'
@@ -10,7 +10,7 @@ import '@/styles/movie/movie-existing.scss'
 import { toggleClassName } from '@/helpers'
 
 const MovieExisting = observer(({ movie }) => {
-  const planetStore = useContext(PlanetstoreContext)
+  const planetStore = useContext(planetStoreContext)
 
   const [active, setActive] = useState(false)
 
