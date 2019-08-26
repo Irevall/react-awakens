@@ -3,9 +3,7 @@
   justify-content: center;
   margin-bottom: 1rem;
 
-  @include mobile-big {
-    > img {
-      width: 70%;
-    }
+  > img {
+      max-width: 100%;
   }
 }
